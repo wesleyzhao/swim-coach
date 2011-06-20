@@ -1,0 +1,9 @@
+<h1>{{ meet.name }}</h1>
+<dl><!--start definition list of events-->
+{% for event in meet.event_set.all %}
+	<dt>{{event.name}}</dt>
+		{% for lane in event.lane_set.all %}
+			<dd>Lane {{lane.number}}: {% if lane.person %}{{lane.person.name}}{% else %} No person selected yet.{% endif %}</dd>
+		{% endfor %}
+{% endfor %}
+</dl><!--end definition list of events--

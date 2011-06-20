@@ -1,0 +1,8 @@
+<h1>{{person.first_name}} {{person.last_name}}'s Events</h1>
+<ul><!--start definition list of events-->
+{% for lane in person.lane_set.all %}
+	<li><a href="/{{lane.event.meet.name|slugify}}/{{lane.event.meet.id}}">{{lane.event.meet.name}}</a> -- 
+	<a href="/event/{{lane.event.id}}">{{lane.event.name}}</a> (Event #{{lane.event.number}}) --
+	Lane #{{lane.number}}</li>
+{% endfor %}
+</ul><!--end definition list of events--

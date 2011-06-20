@@ -1,0 +1,14 @@
+<h1>{{ meet.name }}</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="/{{ meet.name|slug }}/{{ meet.id }}/save" method="post">
+{% csrf_token %}
+<dl><!--start definition list of events-->
+{% for event in meet.event_set.all %}
+	<dt>Event: <input type="text" name="event_name" id="event{{forloop.counter}}" value="{{ event.name }}"/></dt>
+		{% for lane in event.lane_set.all %}
+			<dd>Lane {{lane.number}}:	
+		{% endfor %}
+	<label for="choice{{forloop.counter}}">{{choice.choice}}</label></br>
+{% endfor %}
+</dl><!--end definition list of events-->
+<input type="submit" value="Vote"/>

@@ -1,0 +1,9 @@
+{% if latest_meet_list %}
+	<ul>
+	{% for meet in latest_meet_list %}
+		<li><a href="/{{meet.name|slugify}}/{{ meet.id }}">{{ meet.name }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No meets have been created yet.</p>
+{% endif %}

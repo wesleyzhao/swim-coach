@@ -1,0 +1,8 @@
+<h1><a href="/{{event.meet.name|slugify}}/{{event.meet.id}}">{{ event.meet.name }}</a> -- {{event.name}}</h1>
+<dl><!--start definition list of events-->
+{% for lane in event.lane_set.all %}
+	<dt>Lane {{lane.number}}: {% if lane.person %}
+					<a href="/person/{{lane.person.first_name|slugify}}-{{lane.person.last_name|slugify}}/{{lane.person.id}}">{{lane.person.first_name}} {{lane.person.last_name}}</a>
+				{% else %} No person selected yet.{% endif %}</dt>
+{% endfor %}
+</dl><!--end definition list of events--

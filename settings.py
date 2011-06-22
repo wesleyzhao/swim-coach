@@ -14,7 +14,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'swimcoach',                      # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'wesleypass123',                  # Not used with sqlite3.
+        'PASSWORD': 'testpass123',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -65,7 +65,7 @@ STATIC_URL = '/static/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/media/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -103,7 +103,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'swimcoach.urls'
 
 TEMPLATE_DIRS = (
-	"C:\cygwin\home\Wesley\swimcoach\django_templates", #needs to be updated
+	"/home/ubuntu/swimcoach/django_templates", #needs to be updated
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

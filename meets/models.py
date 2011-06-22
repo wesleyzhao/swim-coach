@@ -50,6 +50,6 @@ class Lane(models.Model):
 class PhoneNumber(models.Model):
 	person = models.ForeignKey(Person)
 	owner_name = models.CharField(max_length=200)
-	number = models.IntegerField(max_length=11)
+	number = models.BigIntegerField(max_length=11)
 	def __unicode__(self):
 		return str(self.number)

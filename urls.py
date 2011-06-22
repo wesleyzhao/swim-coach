@@ -33,6 +33,6 @@ urlpatterns = patterns('',
 		DetailView.as_view(
 			model=Person,
 			template_name='meets/person_detail.html')),
-	
-	
+                       url(r'^twilio_test','meets.views.twiliotest',name='twilio-test'),
+                       url(r'^twilio/find_person','meets.views.get_phone_response')
 )

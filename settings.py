@@ -100,10 +100,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'swimcoach.urls'
+ROOT_URLCONF = 'swim-coach.urls'
 
 TEMPLATE_DIRS = (
-	"/home/ubuntu/swimcoach/django_templates", #needs to be updated
+	"/home/ubuntu/swim-coach/django_templates", #needs to be updated
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

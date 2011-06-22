@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <form action='/submit-person' method="post">
+    {% csrf_token %}
+    Name: <input type="text" name="name-value"/>
+    <input type="submit" value="Add">
+  </form>
+  {% if error_message %}<p>{{error_message}}</p>{% endif %}
+</body>
+
+
+</html>

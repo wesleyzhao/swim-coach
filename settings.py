@@ -103,7 +103,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'swim-coach.urls'
 
 TEMPLATE_DIRS = (
-	"/home/ubuntu/swim-coach/django_templates", #needs to be updated
+	"/home/wesley/swim-coach/django_templates", #needs to be updated
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

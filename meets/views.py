@@ -4,6 +4,7 @@ from django.template import Context,loader,RequestContext
 from meets.controller import *
 from django.shortcuts import render_to_response
 from django.core.urlresolvers import reverse
+from meets.models import Person
 
 def twiliotest(request):
     r = sms_response("STFU TROLOLOLOLOL")
@@ -41,7 +42,30 @@ def submit_person(request):
         return HttpResponseRedirect(reverse('meets.views.add_person'))
 
 def add_number(request):
-    ##do stuff
+    t = loader.get_template('meets/add-number.html')
+    c = RequestContext(request,{
+           'persons' : Person.objects.all()
+            })
+    return HttpResponse(t.render(c))
 
-def save_number(request):
-    ##do more stuff
+def submit_number(request):
+    this_number = request.POST['phone-number']
+    person_id = request.POST['person-id']
+    error_message = ""
+    try:
+        this_person = Person.objects.get(id = person_id)
+    except:
+        error_message = "Please enter a valid swimmer's name"
+    if (len(this_number)>10):
+        error_message = "Your phone number is too long! Only 10 digits plz"
+    elif (len(this_number)<10):
+        error_message = "Your phone number is too short! 10 digits plz ;/"
+    if not error_message:
+        num = PhoneNumber(person = this_person,owner_name = (this_person.first_name + " " + this_person.last_name), number = this_number)
+        num.save()
+        return HttpResponseRedirect(reverse('meets.views.add_number'))
+    else:
+        return render_to_response('meets/add-number.html',{
+                'error_message':error_message,
+                'persons':Person.objects.all()
+                }, context_instance = RequestContext(request))

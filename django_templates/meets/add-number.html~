@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <h1>Connect Your Number with a Swimmer</h1>
+   <form action = "/submit-number" method = "post">
+    {% csrf_token %}
+    <b>Which person are you looking for?</b>
+    <select name="name-dropdown">
+      {% for person in persons %}
+      <option value="{{person.id}}">{{person.first_name}} {{person.last_name}}</option>
+      {% endfor %}
+    </select>
+    <p>
+      Number: <input type="text" name="phone-number"/>
+    </p>
+    <input type="submit" value="Save"/>
+    {% if error_message %}
+    <div id = 'error-message'>{{error_message}}</div>
+    {% endif %}
+   </form>
+</body>
+</html>

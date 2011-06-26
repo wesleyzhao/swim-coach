@@ -37,4 +37,7 @@ urlpatterns = patterns('',
                        url(r'^twilio/find_person','meets.views.get_phone_response'),
                        url(r'^add-person','meets.views.add_person'),
                        url(r'^submit-person','meets.views.submit_person'),
+                       url(r'^add-number','meets.views.add_number'),
+                       url(r'^submit-number','meets.views.submit_number'),
+                       
 )
